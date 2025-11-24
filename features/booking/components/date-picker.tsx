@@ -6,10 +6,20 @@ import { ScrollView, StyleSheet, Text, TouchableOpacity } from "react-native";
 type Props = {
   dates: number[];
   selectedDate: Date | null;
+  currentMonth: number;
+  currentYear: number;
+  disabledDates?: number[];
   onSelectDate: (day: number) => void;
 };
 
-export function DatePickerStrip({ dates, selectedDate, onSelectDate }: Props) {
+export function DatePickerStrip({
+  dates,
+  selectedDate,
+  currentMonth,
+  currentYear,
+  disabledDates = [],
+  onSelectDate,
+}: Props) {
   return (
     <ScrollView
       horizontal
@@ -17,15 +27,31 @@ export function DatePickerStrip({ dates, selectedDate, onSelectDate }: Props) {
       contentContainerStyle={styles.datePicker}
     >
       {dates.map((day) => {
-        const isSelected = selectedDate?.getDate() === day;
+        const isSelected =
+          selectedDate &&
+          selectedDate.getDate() === day &&
+          selectedDate.getMonth() === currentMonth &&
+          selectedDate.getFullYear() === currentYear;
+
+        const isDisabled = disabledDates.includes(day);
+
         return (
           <TouchableOpacity
             key={day}
-            style={[styles.dateButton, isSelected && styles.dateButtonActive]}
+            style={[
+              styles.dateButton,
+              isSelected && styles.dateButtonActive,
+              isDisabled && styles.dateButtonDisabled,
+            ]}
+            disabled={isDisabled}
             onPress={() => onSelectDate(day)}
           >
             <Text
-              style={[styles.dateText, isSelected && styles.dateTextActive]}
+              style={[
+                styles.dateText,
+                isSelected && styles.dateTextActive,
+                isDisabled && styles.dateTextDisabled,
+              ]}
             >
               {day}
             </Text>
@@ -53,6 +79,9 @@ const styles = StyleSheet.create({
   dateButtonActive: {
     backgroundColor: Colors.dark.primary,
   },
+  dateButtonDisabled: {
+    opacity: 0.35,
+  },
   dateText: {
     fontSize: FONT_SIZE.md,
     color: Colors.dark.textGray,
@@ -60,5 +89,8 @@ const styles = StyleSheet.create({
   dateTextActive: {
     color: "#FFFFFF",
     fontWeight: FONT_WEIGHT.bold,
+  },
+  dateTextDisabled: {
+    color: Colors.dark.textGray,
   },
 });
