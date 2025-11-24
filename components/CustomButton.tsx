@@ -1,12 +1,34 @@
+<<<<<<< HEAD
 import Colors from '@/constants/Colors';
 import { BORDER_RADIUS, FONT_SIZE, FONT_WEIGHT, SPACING } from '@/constants/Styles';
 import React from 'react';
 import { StyleSheet, Text, TextStyle, TouchableOpacity, ViewStyle } from 'react-native';
+=======
+import Colors from "@/constants/Colors";
+import {
+  BORDER_RADIUS,
+  FONT_SIZE,
+  FONT_WEIGHT,
+  SPACING,
+} from "@/constants/Styles";
+import React from "react";
+import {
+  StyleSheet,
+  Text,
+  TextStyle,
+  TouchableOpacity,
+  ViewStyle,
+} from "react-native";
+>>>>>>> dev/jason
 
 interface CustomButtonProps {
   title: string;
   onPress: () => void;
+<<<<<<< HEAD
   variant?: 'primary' | 'secondary';
+=======
+  variant?: "primary" | "secondary";
+>>>>>>> dev/jason
   disabled?: boolean;
   style?: ViewStyle;
   textStyle?: TextStyle;
@@ -15,7 +37,11 @@ interface CustomButtonProps {
 export default function CustomButton({
   title,
   onPress,
+<<<<<<< HEAD
   variant = 'primary',
+=======
+  variant = "primary",
+>>>>>>> dev/jason
   disabled = false,
   style,
   textStyle,
@@ -24,7 +50,11 @@ export default function CustomButton({
     <TouchableOpacity
       style={[
         styles.button,
+<<<<<<< HEAD
         variant === 'primary' ? styles.primaryButton : styles.secondaryButton,
+=======
+        variant === "primary" ? styles.primaryButton : styles.secondaryButton,
+>>>>>>> dev/jason
         disabled && styles.disabledButton,
         style,
       ]}
@@ -35,7 +65,13 @@ export default function CustomButton({
       <Text
         style={[
           styles.buttonText,
+<<<<<<< HEAD
           variant === 'primary' ? styles.primaryButtonText : styles.secondaryButtonText,
+=======
+          variant === "primary"
+            ? styles.primaryButtonText
+            : styles.secondaryButtonText,
+>>>>>>> dev/jason
           disabled && styles.disabledButtonText,
           textStyle,
         ]}
@@ -51,15 +87,24 @@ const styles = StyleSheet.create({
     paddingVertical: SPACING.md,
     paddingHorizontal: SPACING.lg,
     borderRadius: BORDER_RADIUS.large,
+<<<<<<< HEAD
     alignItems: 'center',
     justifyContent: 'center',
+=======
+    alignItems: "center",
+    justifyContent: "center",
+>>>>>>> dev/jason
     minHeight: 56,
   },
   primaryButton: {
     backgroundColor: Colors.dark.primary,
   },
   secondaryButton: {
+<<<<<<< HEAD
     backgroundColor: 'transparent',
+=======
+    backgroundColor: "transparent",
+>>>>>>> dev/jason
     borderWidth: 2,
     borderColor: Colors.dark.primary,
   },
@@ -71,7 +116,11 @@ const styles = StyleSheet.create({
     fontWeight: FONT_WEIGHT.semibold,
   },
   primaryButtonText: {
+<<<<<<< HEAD
     color: '#FFFFFF',
+=======
+    color: "#FFFFFF",
+>>>>>>> dev/jason
   },
   secondaryButtonText: {
     color: Colors.dark.primary,

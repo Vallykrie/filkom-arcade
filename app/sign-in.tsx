@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import CustomButton from '@/components/CustomButton';
 import CustomInput from '@/components/CustomInput';
 import Colors from '@/constants/Colors';
@@ -46,12 +47,33 @@ export default function SignInScreen() {
     <SafeAreaView style={styles.container}>
       <KeyboardAvoidingView
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+=======
+import Colors from "@/constants/Colors";
+import { SPACING } from "@/constants/Styles";
+import SignInForm from "@/features/auth/components/sign-in-form";
+import SignInHeader from "@/features/auth/components/sign-in-header";
+import React from "react";
+import {
+  KeyboardAvoidingView,
+  Platform,
+  ScrollView,
+  StyleSheet,
+} from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
+
+export default function SignInScreen() {
+  return (
+    <SafeAreaView style={styles.container}>
+      <KeyboardAvoidingView
+        behavior={Platform.OS === "ios" ? "padding" : "height"}
+>>>>>>> dev/jason
         style={styles.keyboardView}
       >
         <ScrollView
           contentContainerStyle={styles.scrollContent}
           showsVerticalScrollIndicator={false}
         >
+<<<<<<< HEAD
           {/* Back Button */}
           <TouchableOpacity
             style={styles.backButton}
@@ -124,6 +146,10 @@ export default function SignInScreen() {
               variant="secondary"
             />
           </View>
+=======
+          <SignInHeader title="Sign In" subtitle="Sign in to my account" />
+          <SignInForm />
+>>>>>>> dev/jason
         </ScrollView>
       </KeyboardAvoidingView>
     </SafeAreaView>
@@ -140,6 +166,7 @@ const styles = StyleSheet.create({
   },
   scrollContent: {
     flexGrow: 1,
+<<<<<<< HEAD
     paddingHorizontal: SPACING.lg,
     paddingBottom: SPACING.xl,
   },
@@ -204,5 +231,10 @@ const styles = StyleSheet.create({
     fontSize: FONT_SIZE.sm,
     color: Colors.dark.textGray,
     marginHorizontal: SPACING.md,
+=======
+    justifyContent: "center",
+    paddingHorizontal: SPACING.lg,
+    paddingVertical: SPACING.xl,
+>>>>>>> dev/jason
   },
 });
