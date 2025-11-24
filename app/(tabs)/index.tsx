@@ -1,14 +1,3 @@
-<<<<<<< HEAD
-import DeviceCard from '@/components/DeviceCard';
-import Colors from '@/constants/Colors';
-import { FONT_SIZE, FONT_WEIGHT, SPACING } from '@/constants/Styles';
-import { Device, useAppStore } from '@/store/useAppStore';
-import { Ionicons } from '@expo/vector-icons';
-import { router } from 'expo-router';
-import React, { useEffect } from 'react';
-import {
-  SafeAreaView,
-=======
 import Colors from "@/constants/Colors";
 import { FONT_SIZE, FONT_WEIGHT, SPACING } from "@/constants/Styles";
 import DeviceCard from "@/features/arcade/components/DeviceCard";
@@ -20,62 +9,11 @@ import { router } from "expo-router";
 import React from "react";
 import {
   ActivityIndicator,
->>>>>>> dev/jason
   ScrollView,
   StyleSheet,
   Text,
   TouchableOpacity,
   View,
-<<<<<<< HEAD
-} from 'react-native';
-
-// Mock device data - in real app, this would come from API
-const MOCK_DEVICES: Device[] = [
-  {
-    id: '1',
-    name: 'PS5',
-    image: require('@/assets/images/ps5-placeholder.png'),
-    availableDevices: 2,
-  },
-  {
-    id: '2',
-    name: 'XBOX',
-    image: require('@/assets/images/xbox-placeholder.png'),
-    availableDevices: 2,
-  },
-  {
-    id: '3',
-    name: 'ROG PC',
-    image: require('@/assets/images/rogpc-placeholder.png'),
-    availableDevices: 1,
-  },
-  {
-    id: '4',
-    name: 'Pump it Up',
-    image: require('@/assets/images/pumpit-placeholder.png'),
-    availableDevices: 1,
-  },
-];
-
-export default function HomeScreen() {
-  const { devices, setSelectedDevice } = useAppStore();
-
-  // Initialize devices if empty
-  useEffect(() => {
-    if (devices.length === 0) {
-      // In real app, you'd fetch from API
-      // For now, we'll use mock data directly
-    }
-  }, []);
-
-  const handleDevicePress = (device: Device) => {
-    setSelectedDevice(device);
-    router.push('/device-detail');
-  };
-
-  const devicesToDisplay = devices.length > 0 ? devices : MOCK_DEVICES;
-
-=======
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
@@ -91,23 +29,12 @@ export default function HomeScreen() {
     });
   };
 
->>>>>>> dev/jason
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView
         contentContainerStyle={styles.scrollContent}
         showsVerticalScrollIndicator={false}
       >
-<<<<<<< HEAD
-        {/* Header */}
-        <View style={styles.header}>
-          <TouchableOpacity style={styles.iconButton}>
-            <Ionicons name="settings-outline" size={24} color={Colors.dark.text} />
-          </TouchableOpacity>
-          
-          <Text style={styles.title}>FILKOM ARCADE</Text>
-          
-=======
         <View style={styles.header}>
           <TouchableOpacity style={styles.iconButton}>
             <Ionicons
@@ -119,25 +46,11 @@ export default function HomeScreen() {
 
           <Text style={styles.title}>FILKOM ARCADE</Text>
 
->>>>>>> dev/jason
           <TouchableOpacity style={styles.iconButton}>
             <Ionicons name="menu" size={24} color={Colors.dark.text} />
           </TouchableOpacity>
         </View>
 
-<<<<<<< HEAD
-        {/* Device Grid */}
-        <View style={styles.gridContainer}>
-          {devicesToDisplay.map((device) => (
-            <View key={device.id} style={styles.cardWrapper}>
-              <DeviceCard
-                device={device}
-                onPress={() => handleDevicePress(device)}
-              />
-            </View>
-          ))}
-        </View>
-=======
         {isLoading && (
           <View style={styles.center}>
             <ActivityIndicator color={Colors.dark.primary} />
@@ -165,7 +78,6 @@ export default function HomeScreen() {
             ))}
           </View>
         )}
->>>>>>> dev/jason
       </ScrollView>
     </SafeAreaView>
   );
@@ -178,15 +90,6 @@ const styles = StyleSheet.create({
   },
   scrollContent: {
     paddingHorizontal: SPACING.lg,
-<<<<<<< HEAD
-    paddingBottom: SPACING.xl,
-  },
-  header: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    paddingVertical: SPACING.lg,
-=======
     paddingBottom: SPACING.lg,
   },
   header: {
@@ -194,18 +97,12 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "space-between",
     paddingVertical: SPACING.sm,
->>>>>>> dev/jason
   },
   iconButton: {
     width: 40,
     height: 40,
-<<<<<<< HEAD
-    alignItems: 'center',
-    justifyContent: 'center',
-=======
     alignItems: "center",
     justifyContent: "center",
->>>>>>> dev/jason
   },
   title: {
     fontSize: FONT_SIZE.lg,
@@ -214,15 +111,6 @@ const styles = StyleSheet.create({
     letterSpacing: 1,
   },
   gridContainer: {
-<<<<<<< HEAD
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    justifyContent: 'space-between',
-    marginTop: SPACING.md,
-  },
-  cardWrapper: {
-    width: '48%',
-=======
     flexDirection: "row",
     flexWrap: "wrap",
     justifyContent: "space-between",
@@ -238,6 +126,5 @@ const styles = StyleSheet.create({
   errorText: {
     color: "#F87171",
     fontSize: FONT_SIZE.sm,
->>>>>>> dev/jason
   },
 });

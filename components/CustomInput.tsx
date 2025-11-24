@@ -1,10 +1,3 @@
-<<<<<<< HEAD
-import Colors from '@/constants/Colors';
-import { BORDER_RADIUS, FONT_SIZE, SPACING } from '@/constants/Styles';
-import { Ionicons } from '@expo/vector-icons';
-import React from 'react';
-import { StyleSheet, Text, TextInput, TextStyle, View, ViewStyle } from 'react-native';
-=======
 import Colors from "@/constants/Colors";
 import { BORDER_RADIUS, FONT_SIZE, SPACING } from "@/constants/Styles";
 import { Ionicons } from "@expo/vector-icons";
@@ -17,7 +10,6 @@ import {
   View,
   ViewStyle,
 } from "react-native";
->>>>>>> dev/jason
 
 interface CustomInputProps {
   label: string;
@@ -26,20 +18,13 @@ interface CustomInputProps {
   placeholder: string;
   icon?: keyof typeof Ionicons.glyphMap;
   secureTextEntry?: boolean;
-<<<<<<< HEAD
-  keyboardType?: 'default' | 'email-address' | 'numeric' | 'phone-pad';
-=======
   keyboardType?: "default" | "email-address" | "numeric" | "phone-pad";
->>>>>>> dev/jason
   editable?: boolean;
   style?: ViewStyle;
   inputStyle?: TextStyle;
   showPasswordToggle?: boolean;
   onTogglePassword?: () => void;
-<<<<<<< HEAD
-=======
   error?: string;
->>>>>>> dev/jason
 }
 
 export default function CustomInput({
@@ -49,20 +34,13 @@ export default function CustomInput({
   placeholder,
   icon,
   secureTextEntry = false,
-<<<<<<< HEAD
-  keyboardType = 'default',
-=======
   keyboardType = "default",
->>>>>>> dev/jason
   editable = true,
   style,
   inputStyle,
   showPasswordToggle = false,
   onTogglePassword,
-<<<<<<< HEAD
-=======
   error,
->>>>>>> dev/jason
 }: CustomInputProps) {
   return (
     <View style={[styles.container, style]}>
@@ -88,11 +66,7 @@ export default function CustomInput({
         />
         {showPasswordToggle && (
           <Ionicons
-<<<<<<< HEAD
-            name={secureTextEntry ? 'eye-off-outline' : 'eye-outline'}
-=======
             name={secureTextEntry ? "eye-off-outline" : "eye-outline"}
->>>>>>> dev/jason
             size={20}
             color={Colors.dark.primary}
             style={styles.icon}
@@ -100,10 +74,7 @@ export default function CustomInput({
           />
         )}
       </View>
-<<<<<<< HEAD
-=======
       {error && <Text style={styles.error}>{error}</Text>}
->>>>>>> dev/jason
     </View>
   );
 }
@@ -118,21 +89,12 @@ const styles = StyleSheet.create({
     marginBottom: SPACING.sm,
   },
   inputContainer: {
-<<<<<<< HEAD
-    flexDirection: 'row',
-    alignItems: 'center',
-    backgroundColor: Colors.dark.cardBackground,
-    borderRadius: BORDER_RADIUS.medium,
-    paddingHorizontal: SPACING.md,
-    minHeight: 56,
-=======
     flexDirection: "row",
     alignItems: "center",
     backgroundColor: Colors.dark.cardBackground,
     borderRadius: BORDER_RADIUS.medium,
     paddingHorizontal: SPACING.md,
     minHeight: 12,
->>>>>>> dev/jason
   },
   icon: {
     marginRight: SPACING.sm,
@@ -143,12 +105,9 @@ const styles = StyleSheet.create({
     color: Colors.dark.textOnLight,
     paddingVertical: SPACING.md,
   },
-<<<<<<< HEAD
-=======
   error: {
     color: Colors.dark.error,
     fontSize: FONT_SIZE.xs,
     marginTop: 4,
   },
->>>>>>> dev/jason
 });

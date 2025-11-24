@@ -38,12 +38,8 @@
             "backgroundColor": "#000000"
           }
         }
-<<<<<<< HEAD
-      ]
-=======
       ],
       "expo-secure-store"
->>>>>>> dev/jason
     ],
     "experiments": {
       "typedRoutes": true,
