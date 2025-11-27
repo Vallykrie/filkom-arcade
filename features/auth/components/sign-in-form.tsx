@@ -1,6 +1,6 @@
 import { Ionicons } from "@expo/vector-icons";
 import { zodResolver } from "@hookform/resolvers/zod";
-import React from "react";
+import React, { useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
@@ -12,6 +12,7 @@ import { useLogin } from "../hooks/use-auth";
 import { loginSchema, LoginSchema } from "../schema/auth";
 
 export default function SignInForm() {
+  const [showPassword, setShowPassword] = useState(false);
   const { mutate: login, isPending } = useLogin();
 
   const { control, handleSubmit, watch, setValue } = useForm<LoginSchema>({
@@ -57,7 +58,9 @@ export default function SignInForm() {
             onChangeText={field.onChange}
             placeholder="My Password"
             icon="lock-closed-outline"
-            secureTextEntry
+            secureTextEntry={!showPassword}
+            showPasswordToggle
+            onTogglePassword={() => setShowPassword(!showPassword)}
             error={fieldState.error?.message}
           />
         )}

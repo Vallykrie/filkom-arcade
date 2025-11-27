@@ -43,21 +43,18 @@ export default function DeviceDetailScreen() {
   const [currentMonth, setCurrentMonth] = useState<number>(selectedMonth);
   const [currentYear] = useState<number>(selectedYear);
 
-  // time slot tergantung device + tanggal
   const {
     data: timeSlots,
     isLoading: slotsLoading,
     isError: slotsError,
   } = useTimeSlots(deviceId, selectedDate);
 
-  // availability per hari (buat disable tanggal)
   const { data: monthAvailability } = useMonthAvailability(
     deviceId,
     currentYear,
     currentMonth
   );
 
-  // list tanggal yang sudah full (tidak ada slot tersisa)
   const disabledDates =
     monthAvailability
       ?.filter((day) => !day.hasAvailableSlot)
@@ -107,7 +104,7 @@ export default function DeviceDetailScreen() {
   const handleDateSelect = (day: number) => {
     const date = new Date(currentYear, currentMonth, day);
     setSelectedDate(date);
-    setSelectedTimeSlot(null); // ganti tanggal, reset slot
+    setSelectedTimeSlot(null);
   };
 
   const handleTimeSlotSelect = (timeSlot: TimeSlotType) => {

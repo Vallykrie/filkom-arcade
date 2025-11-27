@@ -20,14 +20,14 @@ const queryClient = new QueryClient();
 
 const toastConfig: ToastConfig = {
   success: ({ text1, text2 }: ToastConfigParams<any>) => (
-    <View style={styles.toastContainer}>
+    <View style={[styles.toastContainer, styles.successContainer]}>
       {text1 ? <Text style={styles.successText}>{text1}</Text> : null}
       {text2 ? <Text style={styles.bodyText}>{text2}</Text> : null}
     </View>
   ),
 
   error: ({ text1, text2 }: ToastConfigParams<any>) => (
-    <View style={styles.toastContainer}>
+    <View style={[styles.toastContainer, styles.errorContainer]}>
       {text1 ? <Text style={styles.errorText}>{text1}</Text> : null}
       {text2 ? <Text style={styles.bodyText}>{text2}</Text> : null}
     </View>
@@ -77,26 +77,44 @@ export default function RootLayout() {
 
 const styles = StyleSheet.create({
   toastContainer: {
-    width: "80%",
+    width: "85%",
     alignSelf: "center",
-    backgroundColor: "rgba(0,0,0,0.1)",
-    paddingVertical: 16,
+    paddingVertical: 14,
     paddingHorizontal: 16,
-    borderRadius: 4,
-    marginBottom: 24,
+    borderRadius: 12,
+
+    backgroundColor: "rgba(255, 255, 255, 0.15)",
+
+    borderWidth: 1,
+    borderColor: "rgba(0, 0, 0, 0.15)",
+
+    backdropFilter: "blur(10px)",
+
+    elevation: 6,
+    shadowColor: "#000",
+    shadowOpacity: 0.15,
+    shadowRadius: 10,
+    shadowOffset: { width: 0, height: 4 },
+
+    marginBottom: 32,
   },
+
+  successContainer: {},
   successText: {
-    color: "#4ADE80",
-    fontWeight: "600",
+    color: "#34D399",
+    fontWeight: "700",
     fontSize: 15,
   },
+
+  errorContainer: {},
   errorText: {
     color: "#F87171",
-    fontWeight: "600",
+    fontWeight: "700",
     fontSize: 15,
   },
+
   bodyText: {
-    color: "#D1D5DB",
+    color: "#F3F4F6",
     marginTop: 4,
     fontSize: 13,
   },

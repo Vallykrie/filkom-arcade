@@ -20,6 +20,13 @@ export function DatePickerStrip({
   disabledDates = [],
   onSelectDate,
 }: Props) {
+  const today = new Date();
+  const todayMidnight = new Date(
+    today.getFullYear(),
+    today.getMonth(),
+    today.getDate()
+  );
+
   return (
     <ScrollView
       horizontal
@@ -27,13 +34,16 @@ export function DatePickerStrip({
       contentContainerStyle={styles.datePicker}
     >
       {dates.map((day) => {
+        const date = new Date(currentYear, currentMonth, day);
+        const isPastDay = date < todayMidnight;
+
         const isSelected =
           selectedDate &&
           selectedDate.getDate() === day &&
           selectedDate.getMonth() === currentMonth &&
           selectedDate.getFullYear() === currentYear;
 
-        const isDisabled = disabledDates.includes(day);
+        const isDisabled = isPastDay || disabledDates.includes(day);
 
         return (
           <TouchableOpacity

@@ -1,11 +1,8 @@
+import { formatDateLocal } from "@/utils/format-date";
 import { PBTimeSlot } from "../schema/time-slots";
 import { getBookingsByDeviceAndDate } from "./booking";
 import { getActiveDeviceUnitsByDevice } from "./device-units";
 import { getTimeSlotsByDevice } from "./time-slot";
-
-function formatDate(date: Date) {
-  return date.toISOString().slice(0, 10);
-}
 
 export type DayAvailability = {
   day: number;
@@ -27,9 +24,22 @@ export async function getMonthAvailability(
 
   const results: DayAvailability[] = [];
 
+  const today = new Date();
+  const todayMidnight = new Date(
+    today.getFullYear(),
+    today.getMonth(),
+    today.getDate()
+  );
+
   for (let day = 1; day <= daysInMonth; day++) {
     const date = new Date(year, month, day);
-    const dateStr = formatDate(date);
+    const dateStr = formatDateLocal(date);
+
+    const isPast = date < todayMidnight;
+    if (isPast) {
+      results.push({ day, hasAvailableSlot: false });
+      continue;
+    }
 
     const bookings = await getBookingsByDeviceAndDate(deviceId, dateStr);
 
